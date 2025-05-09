@@ -17,8 +17,7 @@ const calendrierDuCrayon = {
 
 function drawTipPen(){
     const pentip = ` /\\
-/__\\`;
-                
+/__\\`;               
     console.log(pentip);
 }
 
@@ -36,15 +35,15 @@ function drawSeptToFebEraser(){
      console.log(newEraser);
 }
 
-
+// Iterative Way
 
 function drawMyPen(month){
     const firstMonths = ["septembre", "octobre", "novembre", "decembre", "janvier", "fevrier"];
     const lastMonths = ["mars", "avril", "mai", "juin"];
     const floor = "||||";
+    let numberOfFloor = calendrierDuCrayon[month];
 
     drawTipPen();
-    let numberOfFloor = calendrierDuCrayon[month];
 
     for (let i = 0; i< numberOfFloor; i++){
         console.log(floor);
@@ -57,9 +56,43 @@ function drawMyPen(month){
     }
 }
 
-drawMyPen('septembre');
+/* drawMyPen('septembre');
 drawMyPen('fevrier');
 drawMyPen('mars');
-drawMyPen('juin');
+drawMyPen('juin'); */
+
+//Recursive Way 
+
+function drawFloorsRec(numberOfFloor){
+    const floor = "||||";
+    
+    if (numberOfFloor == 0){
+        return
+    } else {
+        console.log(floor);
+        numberOfFloor --;
+        drawFloorsRec(numberOfFloor);
+    }
+}
 
 
+function drawMyPenRec(month){
+    const firstMonths = ["septembre", "octobre", "novembre", "decembre", "janvier", "fevrier"];
+    const lastMonths = ["mars", "avril", "mai", "juin"];
+    let numberOfFloor = calendrierDuCrayon[month];
+ 
+    drawTipPen();
+
+    drawFloorsRec(numberOfFloor);
+
+    if (firstMonths.includes(month)){
+        drawSeptToFebEraser();
+    } else if (lastMonths.includes(month)){
+        drawMarsToJuneEraser();
+    }
+}
+
+drawMyPenRec('septembre');
+drawMyPenRec('fevrier');
+drawMyPenRec('mars');
+drawMyPenRec('juin');
