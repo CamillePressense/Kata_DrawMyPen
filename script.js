@@ -36,18 +36,30 @@ function drawSeptToFebEraser(){
      console.log(newEraser);
 }
 
-function drawSeptToFebPen(){
+
+
+function drawMyPen(month){
+    const firstMonths = ["septembre", "octobre", "novembre", "decembre", "janvier", "fevrier"];
+    const lastMonths = ["mars", "avril", "mai", "juin"];
+    const floor = "||||";
+
     drawTipPen();
-    drawSeptToFebEraser();
+    let numberOfFloor = calendrierDuCrayon[month];
+
+    for (let i = 0; i< numberOfFloor; i++){
+        console.log(floor);
+    }; 
+
+    if (firstMonths.includes(month)){
+        drawSeptToFebEraser();
+    } else if (lastMonths.includes(month)){
+        drawMarsToJuneEraser();
+    }
 }
 
-function drawMarsToJunePen(){
-    drawTipPen();
-    drawMarsToJuneEraser();
-}
+drawMyPen('septembre');
+drawMyPen('fevrier');
+drawMyPen('mars');
+drawMyPen('juin');
 
-
-
-drawSeptToFebPen()
-drawMarsToJunePen()
 
