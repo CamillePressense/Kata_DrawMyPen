@@ -96,3 +96,14 @@ drawMyPenRec('septembre');
 drawMyPenRec('fevrier');
 drawMyPenRec('mars');
 drawMyPenRec('juin');
+
+
+function displayTheEnd(){
+    console.log(` _____ ___ _   _   ____  _   _   _  __    _   _____  _      _  
+|  ___|_ _| \\ | | |  _ \\| | | | | |/ /   / \\ |_   _|/ \\    | | 
+| |_   | ||  \\| | | | | | | | | | ' /   / _ \\  | | / _ \\   | | 
+|  _|  | || |\\  | | |_| | |_| | | . \\  / ___ \\ | |/ ___ \\  |_| 
+|_|   |___|_| \\_| |____/ \\___/  |_|\\_\\/_/   \\ _\\_/_/   \\_\\ (_)`)
+}
+
+displayTheEnd()
